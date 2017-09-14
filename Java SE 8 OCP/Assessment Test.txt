@@ -1,0 +1,58 @@
+Java OCP Study Exam Guide
+
+Assessment Test
+
+1 - D (chute)
+R = H
+2 - B, pois o método sendMessage é da classe TextMessage
+R = D
+3 - E (chute)
+R = D, E
+4 - E, pois o tipo foi especificado no lado esquerdo
+R = E
+5 - não sei
+R = F
+6 - F (mas talvez E ou B)
+R = B, C, F
+7 - C (chute)
+R = A
+8 - A, B, D
+R = A, B, D
+9 - não sei
+R = A, C
+10 - E, pois x++ retorna o valor, mas não atualiza o objeto x
+R = F
+11 - não sei (lambdas)
+R = B, F
+12 - não sei
+R = D
+13 - A, B
+R = B, D
+14 - B, pois o bloco catch não existe
+R = D
+15 - C (mas talvez A)
+R = A
+16 - A
+R = A
+17 - não sei
+R = B, C, E
+18 - E (chute)
+R = C, D
+19 - A, D
+R = B, D
+20 - não sei
+R = C
+
+
+Revisar/Estudar:
+
+Lambdas,
+util.concurrent package,
+CyclicBarrier e construtor,
+ExecutorService,
+Executors,
+concurrency,
+syncronized methods and keyword,
+ResultSet parameters,
+Paths and Path methods, how it works,
+

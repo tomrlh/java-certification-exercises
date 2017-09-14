@@ -1,0 +1,60 @@
+Capítulo 1 - Java Class Design
+
+Topics:
+
+- Implement encapsulation
+- Implement inheritance including visibility modifiers and composition
+- Implement polymorphism
+- Overrride hashCode, equals, and toString methods from Object class
+- Create and use singleton classes and ummutable classes
+- Develop code that uses static keyword on initialize blocks, variables, methods, and classes
+
+
+
+- Using instanceof
+
+Just check if a object reference is of the type of the class in right side (directly or indirectly)
+Eg:
+
+public class Animal {}
+
+public class Dog extends Animal {}
+
+public class Cat extends Animal {}
+
+//
+
+Animal dog = new Dog();
+boolean a1 = dog instanceof Animal; // true
+boolean a2 = dog instanceof Dog; // true
+boolean a3 = dog instanceof Cat; // false
+
+- if the object reference is null, the evaluation it's false
+- when the compiler realize that a reference cannot be of the instance of right side, it gives a compilation error
+
+-----------------------------------------------
+
+- Undestanding Virtual Method Invocation
+
+all public (non-private) variables & functions are Virtual by default. 
+Moreover variables & functions using keyword final are not virtual.
+
+------------------------------------------------
+
+- Annotating Override Methods
+
+When you see a @Override annotation, you must check if the method:
+
+- is implementing a method from an interface;
+- is overriding a superclass method of a class shown in the example;
+- if overriding a method declared in Object, such as hashCode, equals or toString;
+
+The third one is the more important
+
+-------------------------------------------------
+
+- Coding equals, hashCode and toString
+
+toString
+
+its called when explicitly, or when you try to print out an object.
