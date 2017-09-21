@@ -1,0 +1,62 @@
+Java OCA Study Exam Guide
+
+Assessment Test
+
+1 - Não sei
+R - E. Variáveis locais requerem atribuição antes de serem usadas
+
+2 - B
+R - C. Literais de String são usados do pool.
+
+3 - B. Não se pode restringir mais um método de interface.
+R - C, D, E
+
+4 - Não sei
+R - C
+
+5 - D, pois IllegalArgument herda de RuntimeException
+R - D
+
+6 - B
+R - B
+
+7 - C, pois printou a referência
+R - B
+
+8 - F (ler explicação)
+R - A
+
+9 - B, C, E
+R - B, C
+
+10 - A, D, F
+R - C, D, F
+
+11 - B
+R - B
+
+12 - B
+R - B
+
+13 - A
+R - C
+
+14 - Não sei
+R - D, E, F
+
+15 - C, D, E (em dúvida se A também)
+R - A, C, E
+
+16 - A, B, C, D, G
+R - D, F, G
+
+17 - Não sei
+R - A, C, F
+18 - Não sei
+R - B, D
+
+19 - C
+R - C
+
+20 - B, D, E
+R - A, C
