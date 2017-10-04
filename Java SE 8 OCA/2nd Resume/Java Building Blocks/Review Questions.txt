@@ -1,0 +1,76 @@
+Review Questions
+
+1 - A, B, E
+R = A, B, E
+
+2 - D
+R = D
+
+3 - B, D, E
+R = B, D, E
+
+4 - A, B
+R = A, B
+
+5 - C, D
+R = C, D
+
+6 - E
+R = E
+
+7 - A, B, C
+R = A, B, C
+
+8 - B
+R = B
+
+9 - A, C, D, E
+R = A, C, D, E
+
+10 - E
+R  = E
+
+11 - C, D
+R  = C, D
+
+12 - G
+R  = G
+
+13 - A, D
+R  = A, D
+
+14 - D
+R  = D
+
+15 - A, E
+R  = A, E
+
+16 - G
+R  = B, C, D
+
+17 - A, E
+R  = A, E
+
+18 - C, D, E
+R  = C, D, E
+
+19 - B, D
+R  = B, D
+
+20 - B, D
+R  = B, E
+
+21 - A
+R  = A
+
+22 - B, E
+R  = B, E
+
+23 - C, F
+R  = C, D
+
+Missed:
+
+16, 20, 23
+---------
+TOTAL: 20
