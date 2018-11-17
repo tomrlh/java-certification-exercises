@@ -1,0 +1,257 @@
+Advanced Class Design
+
+ ✓ Java Class Design
+ ■ Implement inheritance including visibility modifiers and composition
+ ■ Implement polymorphism
+ ■ Override hashCode, equals, and toString methods from Object class
+ ■ Develop code that uses the static keyword on initialize blocks, variables, methods, and classes
+
+ ✓ Advanced Java Class Design
+ ■ Develop code that uses abstract classes and methods
+ ■ Develop code that uses final keyword
+ ■ Create inner classes including static inner class, local class, nested class, and anonymous inner class
+ ■ Use enumerated types including methods, and constructors in an enum type
+ ■ Develop code that declares, implements, and/or extends interface and use the @Override annotation
+
+
+REVISÂO
+---------------------------------------
+
+SOBRACARGA E SOBRESCRITA
+
+Só acontecem quando os métodos tem o mesmo nome.
+Sobrescrita só acontece quando a assinatura (nome e lista de parâmetros) dos métodos são iguais.
+O retorno deve ser o mesmo ou mais restrito.
+As exceções lançadas devem ser as mesmas ou mais restritas.
+O modificador de acesso deve ser o mesmo ou mais acessível.
+
+Sobrecarga acontece quando a lista de parâmetros varia de tipo e número, e o tipo de retorno também.
+
+
+
+---------------------------------------
+
+CLASSES ABSTRATAS
+
+Podem não conter métodos, métodos abstratos e concretos.
+Métodos abstratos só podem existir em classes abstratas e interfaces.
+A primeira classe concreta que herdar de uma classe abstrata, deve implementar os métodos abstratos herdados.
+Podem ser instanciadas anonimamente.
+
+---------------------------------------
+
+STATIC E FINAL
+
+FINAL previne um método ser sobrescrito e uma variável de ser mudada e uma classe de ser herdada.
+
+---------------------------------------
+
+CONTEÚDO OCP
+
+INSTANCEOF
+
+Checa se a variável referenciada é do tipo comparado (direta ou indiretamente).
+Se for comparado null ou uma variável nula com Object, dará false.
+Se as classes comparadas não tem qualquer ligação ou nenhuma possibilidade em tempo de execução de serem, não compila.
+
+Geralmente usado para determinar se uma instância é subclasse de uma classe específica antes de se fazer um cast explícito.
+
+EX: considere um método que recebe um Animal e realiza operações baseadas naquele tipo de animal:
+
+public void feedAnimal(Animal animal) {
+	if(animal instanceof Cow) {
+		((Cow)animal).addHay();
+	}
+	else if(animal instanceof Bird) {
+		((Bird)animal).addSeed();
+	}
+	else if(animal instanceof Lion) {
+		((Lion)animal).addMeat();
+	}
+	else {
+		throw new RuntimeException("Unsupported animal");
+	}
+}
+OBS: este não é um bom jeito de escrever código, este foi um exemplo. instanceof é eficientemente usado quando se está escrevendo uma biblioteca que vai ser usada por vários programadores.
+
+
+
+-------------------------------------------
+
+ENTENDENDO A INVOCAÇÃO DE MÉTODOS VIRTUAIS
+
+Corrigindo o exemplo acima:
+
+abstract class Animal {
+	public abstract void feed(); }
+}
+class Cow extends Animal {
+	public void feed() { addHay(); }
+	private void addHay() { }
+}
+class Bird extends Animal {
+	public void feed() { addSeed(); }
+	private void addSeed() { }
+}
+class Lion extends Animal {
+	public void feed() { addMeat(); }
+	private void addMeat() { }
+}
+
+A classe Animal é abstrata e requer que qualquer classe concreta que a herdar implemente o 
+método feed().
+Desta maneira, se novos animais forem criados, todos serão alimentados pelo método feed().
+O método anterior ficará assim:
+
+public void feedAnimal(Animal animal) {
+	animal.feed();
+}
+
+Este foi o exemplo de uso de um método virtual. Isto significa que, ao chamar o método feed(), o método foi procurado no tipo da instância e não da referência. Portanto o compilador PROCURARÁ UMA VERSÃO SOBRESCRITA DO MÉTODO, não a versão to tipo de referência.
+No exemplo, o método feed() dos animais não é chamado na classe Animal, e sim no tipo usado em tempo de execução (tipo de instância, do lado direito).
+
+Com variáveis não funciona assim, a variável é chamada no tipo de referência.
+
+
+
+-----------------------------------------
+
+ANOTANDO MÉTODOS SOBRESCRITOS
+
+A anotação @Override é basicamente uma promessa que se faz ao compilador, de que o 
+programador irá sobrescrever o método anotado. Caso a promessa não seja cumprida, o 
+compilador acusa erro.
+Esta anotação é para o compilador auxiliar o programador a de fato sobrescrever o método 
+anotado.
+
+
+
+-----------------------------------------
+
+CODIFICANDO EQUALS, HASCODE E TOSTRING
+
+Quando se sobrescreve equals() é esperado que sobrescreva hashCode().
+
+HashCode - não é recomendado usar boleanos ou char no hashCode.
+não é recomendado usar variáveis que mudem constantemente na geração do HashCode.
+Quando usado equals() em 2 objetos e for retornado TRUE, o hashCode() de cada um deve retornar o mesmo resultado.
+Quando false em equals(), os objetos comparados podem retornar hashCode() iguais ou diferentes.
+
+Dica: pege os elementos chave que identifiquem seu objeto (que não mude em tempo de execução)
+e combine-os:
+
+public int hashCode() {
+	return keyField * 7 + otherKeyField.hashCode();
+}
+
+DICA DE BIBLIOTECA: http://commons.apache.org/proper/commons-lang/
+
+
+
+-----------------------------------------
+
+ENUMS
+
+Um Enum é um conjunto de constantes. É bom para quando se estiver usando constantes numéricas
+por exemplo, não se passe um valor inválido que só será encontrado em tempo de execução.
+
+Podem ser iterados.
+Podem ser comparados.
+Não se pode comparar um Enum com tipo primitivo (Enum é um tipo).
+Não podem ser herdados.
+Não podem ser comparados com int.
+
+CONSTRUTORES, CAMPOS E MÉTODOS EM ENUMS
+
+(;) é obrigatório caso tenha algo mais além dos nomes dos enums (seja construtor, descrição ou variáveis)
+Caso possua construtor, só compila se for private ou package private.
+
+Quando o ENUM tem um método abstrato, cada valor deve implementá-lo.
+
+
+
+-------------------------------------------
+
+CRIANDO CLASSES ANINHADAS
+
+4 tipos:
+
+- MEMBRO => definida no mesmo nível das variáveis de instância;
+	- podem ser PUBLIC, PRIVATE, PROTECTED ou DEFAULT;
+	- podem herdar qualquer classe ou interface;
+	- podem ser abstratas ou final;
+	- não podem declarar campos ou métodos static;
+	- podem acessar membros da classe container incluindo privados;
+
+- LOCAL => definida dentro de um método;
+	- não devem ter um modificador de acesso;
+	- não podem ser declaradas como static e não podem ter campos ou métodos estáticos;
+	- tem acesso a todos campos e métodos da classe container;
+	- não tem acesso a variáveis locais de um método ao menos que sejam final ou effective
+	  final;
+
+- ANÔNIMA => classe local que não possui nome;
+
+- ESTÁTICA => classe estática definida no mesmo nível das variáveis estáticas;
+	- precisa do namespace pois tem de ser chamada da classe container;
+	- pode ter modificador de acesso;
+	- a classe container pode acessar seus campos e métodos;
+
+Benefícios:
+- encapsular classes auxiliares restritas à classe container;
+- facilita a criação de uma classe que só será utilizada em um local;
+
+
+- para se ter uma instância da classe aninhada, é preciso uma instância da classe de fora antes;
+- o compilador cria 1 arquivo para cada classe;
+- interfaces podem ser declaradas dentro de classes normalmente;
+
+
+EFFECTIVE FINAL: quando a variável local é atribuída só uma vez, mas não é final
+explicitamente.
+
+RESUMO
+
+TIPOS DE CLASSES ANINHADAS
+
+-------------------------------------------------------------------------
+				|    MEMBRO 	|   LOCAL 	|   ANÔNIMA	  | ESTÁTICA 	|
+-------------------------------------------------------------------------
+Modificadores	| public, 		| Nenhum, 	| Nenhum, 	  | public,		|
+de acesso		| protected,	| já é um 	| já é uma 	  | protected,	|
+permitido		| private,		| método 	| declaração  | private,	|
+				| default 		| local 	| local 	  | default		|
+-------------------------------------------------------------------------
+Pode herdar		| Sim 			| Sim 		| Não - deve  | Sim 		|
+qualquer classe | 				| 			| ter exata-  | 	 		|
+e interfaces 	| 				| 			| mente uma   |  			|
+			 	| 				| 			| superclasse |				|
+			 	| 				| 			| ou interface|				|
+-------------------------------------------------------------------------
+Pode ser 		| Sim 			| Sim 		| Não - pois  | Sim 		|
+Abstrata 		| 				| 			| não possui  | 			|
+				| 				| 			| definição   | 			|
+-------------------------------------------------------------------------
+Pode ser 		| Sim 			| Sim 		| Não - pois  | Sim 		|
+Final 	 		| 				| 			| não possui  | 			|
+				| 				| 			| definição   | 			|
+-------------------------------------------------------------------------
+Pode acessar 	| Sim 			| Sim 		| Sim 		  | Não - não  	|
+membros de 		| 				| 			| 			  | diretamente,|
+instância da 	| 				| 			|			  | requer ins-	|
+classe container| 				| 			| 			  | tância da	|
+				| 				| 			| 			  | classe		|
+				| 				| 			| 			  | container	|
+-------------------------------------------------------------------------
+Pode acessar 	| Não 			| Sim - se	| Sim - se    | Não 	  	|
+variáveis locais| 				| for final | for final	  | 			|
+da classe 		| 				| ou 		| ou		  | 			|
+container		| 				| effective | effective	  | 			|
+				| 				| final		| final		  | 			|
+				| 				| 			| 			  | 			|
+-------------------------------------------------------------------------
+Pode declarar 	| Não 			| Não		| Não 		  | Sim 	  	|
+métodos 		| 				| 			| 			  | 			|
+estáticos 		| 				| 	 		| 			  | 			|
+-------------------------------------------------------------------------
+

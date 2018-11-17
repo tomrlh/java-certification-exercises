@@ -1,0 +1,122 @@
+Revisando OCA - Java Basics
+
+
+
+-----------------------------------------------------------------------------------
+
+
+
+Java Basics
+
+
+
+COMENTS
+
+/**
+* Javadoc multiple-line comment
+* @author Jeanne and Scott
+*/
+
+
+public significa que outras classes podem acessar a classe, propriedade ou método.
+
+
+
+MÉTODO MAIN
+
+- é o gateway entre o começo do processo
+
+
+
+STATIC
+
+Amarra uma variável ou método à classe, e não é necessário instanciar a classe para usar o membro estático.
+
+
+VOID
+
+Recomendado usar também em métodos que mudam estado de objetos
+
+
+IMPORT
+
+quando precisar usar classes com mesmo nome: uma com import e outra com FQN
+
+
+CONSTRUTORES
+
+O propósito de construtores é inicializar campos, embora possa ser colocado qualquer código nele.
+
+
+BLOCOS INICIALIZADORES
+
+Blocos de código fora de qualquer método em uma classe (Instance Initializers).
+
+
+ORDEM DE INICIALIZAÇÂO
+
+- campos e Instance Initializers rodam na ordem em que aparecem no código;
+- construtores rodam após campos e Instance Initializers terem rodado;
+
+
+TIPOS PRIMITIVOS
+
+Primitivos não tem métodos.
+
+
+DECLARANDO MÚLTIPLAS VARIÁVEIS
+
+Só se pode declarar múltiplas variáveis se forem do mesmo tipo. O nome do tipo não pode repetir.
+
+// todas podem
+String s1, s2;
+String s3 = "yes", s4 = "no";
+int i1, i2, i3 = 0;
+
+
+IDENTIFICADORES
+
+Podem iniciar com $ ou _
+
+
+VALORES DE INICIALIZAÇÃO DEFAULT
+
+VARIÁVEIS LOCAIS (dentro de métodos e nos parâmetros)
+
+- devem ser inicializadas antes de usadas, pois não possuem valor default.
+
+
+VARIÁVEIS DE INSTÂNCIA E DE CLASSE
+
+Variáveis de classe estão fora de métodos e são estáticas (static)
+
+Campos de classe e variáveis de instância e de classe são inicializadas por padrão.
+
+LITERAIS NUMÉRICOS
+
+- podem conter underline entre 2 dígitos e começar com 1-9, 0x, 0X, 0b, 0B
+
+
+
+GARBAGE COLLECTION
+
+Referências podem ser ou não criadas no HEAP;
+Objetos sempre estão no HEAP;
+
+
+BENEFÍCIOS DO JAVA
+
+Object Oriented
+Encapsulation
+Platform Independent
+Robust - ex: gerencia sua memória e tem garbage collector
+Simple
+Secure
+
+
+OBS GERAIS
+
+- java.lang é importado automaticamente;
+- ESCOPO é o local onde uma variável pode ser acessada;
+- tipos de variáveis: de instância, classe e locais;
+- Java é compilado para bytecode;

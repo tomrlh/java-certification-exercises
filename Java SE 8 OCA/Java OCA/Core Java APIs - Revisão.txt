@@ -1,0 +1,204 @@
+Core Java APIs
+
+- Classes imutáveis no Java são FINAL e subclasses não podem mudar seu comportamento;
+
+
+
+STRING POOL
+
+Fica na JVM e armazena as strings literais. "name" é um literal, myObject.toString() e new String("name") não são.
+
+Strings que não estão no Pool podem ser Garbage Coletadas.
+
+
+
+SUBSTRING()
+
+substring(int beginIndex)
+substring(int beginIndex, endIndex) - endIndex = stopAt
+
+
+
+startsWith() and endsWith() são case-sensitive
+
+
+
+STRING BUILDER
+
+APPEND - concatena String
+
+INSERT - adiciona String no índice informado: insert(int offset, String str).
+Se for inserir no length + 1, não dá indexOutOfBounds, se for mais de 1, a exceção é lançada:
+        StringBuilder sb = new StringBuilder("animals");
+        sb.insert(7, "-"); // sem exceção
+        sb.insert(8, "-"); // com exceção
+
+DELETE() E DELETECHARAT()
+
+StringBuilder sb = new StringBuilder("abcdef");
+sb.delete(1, 3); // sb = adef
+sb.deleteCharAt(5); // throws an exception
+
+
+OBS: se for chamado equals em 2 instâncias de StringBuilder, ele vai checar se as referências são iguais, não o conteúdo.
+
+
+
+ARRAYS
+
+DICA: ler [] como 'array' = char[] => tipo: array de char
+
+
+int[] numbers2 = new int[] {42, 55, 99};
+
+int[] numbers2 = {42, 55, 99}; // array anônimo
+
+
+as [] podem ser digitadas antes e depois do nome, e adicionar espaço é opcional. Todos são válidos:
+
+int[] numAnimals;
+int [] numAnimals2;
+int numAnimals3[];
+int numAnimals4 [];
+[]int numAnimals4; ... // inválido
+
+
+declarações como:
+
+int ids[], types;
+
+são válidas, irá criar um int[] ids e outro int types;
+
+lembrando que multiplas declações devem ser do mesmo tipo no Java (com esta exceção para arrays)
+
+Se array de referência for printado, será printado a referência na memória, pra printar bonito pode-se usar java.util.Arrays.toString(arr).
+
+
+
+SORTING ARRAYS
+
+import java.util.Arrays;
+
+int[] numbers = { 6, 9, 1 };
+Arrays.sort(numbers);
+
+
+NOTA SOBRE VARIÁVEIS DE REFERÊNCIA
+
+String[] = strings {"string"};
+Object[] objects = strings; // aqui não temos um object[], e sim uma variável de referência do tipo Object[] que aponta para um String[]
+
+Portanto:
+
+objects[0] = new StringBuilder(); // ArrayStoreException, erro em tempo de execução
+Para mais detalhes, pg 122 do Java OCA.
+
+
+
+LENGTH não considera o conteúdo, considera os slots.
+
+
+
+BINARYSEARCH:
+
+nota: o array deve estar ordenado, senão o resultado é imprevisível (qualquer número)
+
+int[] numbers = {2,4,6,8};
+System.out.println(Arrays.binarySearch(numbers, 2)); // 0
+System.out.println(Arrays.binarySearch(numbers, 4)); // 1
+System.out.println(Arrays.binarySearch(numbers, 1)); // -1
+System.out.println(Arrays.binarySearch(numbers, 3)); // -2 
+System.out.println(Arrays.binarySearch(numbers, 9)); // -5
+
+
+
+DECLARANDO ARRAYS MULTIDIMENSIONAIS
+
+int[][] vars1; // 2D array
+int vars2 [][]; // 2D array
+int[] vars3[]; // 2D array
+int[] vars4 [], space [][]; // a 2D AND a 3D array
+
+
+
+AUTOBOX
+
+- conversão de primitivos para seus respectivos wrappers automaticamente
+
+
+
+List<Integer> numbers = new ArrayList<>();
+numbers.add(1);
+numbers.add(2);
+numbers.remove(1);
+System.out.println(numbers);
+
+
+
+CONVERSÃO DE ARRAY PARA LIST
+
+String[] array = { "hawk", "robin" }; // [hawk, robin]
+List<String> list = Arrays.asList(array); // returns fixed size list
+System.out.println(list.size()); // 2
+list.set(1, "test"); // [hawk, test]
+array[0] = "new"; // [new, test]
+for (String b : array) System.out.print(b + " "); // new test
+list.remove(1); // throws UnsupportedOperation Exception
+
+A exceção é lançada pois não é permitido mudar o tamanho dessa lista (por estar linkada com um array)
+
+
+
+TRICK LEGAL
+
+List<String> list = Arrays.asList("one", "two");
+
+Legal pois quando testando, se pode criar e popular uma List em uma linha.
+
+
+
+SORTING ARRAY LIST
+
+Collections.sort(arrayList)
+
+
+
+DATES AND TIMES
+
+pacote java.time
+
+
+LocalDate - somente a data
+LocalTime - somente hora
+LocalDateTime - data e hora
+
+
+NOTA: Meses são contados a partir de 1 e não 0 a partir do Java 8.
+
+Date e Time são IMUTÁVEIS
+
+
+LocalDate:
+Years, Months, Weeks, Days
+
+LocalTime:
+Hours, Minutes, Seconds, Nanos
+
+
+
+WORKING WITH PERIODS
+
+Period annually = Period.ofYears(1); // every 1 year
+Period quarterly = Period.ofMonths(3); // every 3 months
+Period everyThreeWeeks = Period.ofWeeks(3); // every 3 weeks
+Period everyOtherDay = Period.ofDays(2); // every 2 days
+Period everyYearAndAWeek = Period.of(1, 0, 7); // every year and 7 days
+
+
+NOTA: períodos não podem ser chainados. Compilam, mas não funciona como esperado:
+
+Period wrong = Period.ofYears(1).ofWeeks(1); // every week
+
+linha acima equivalente à:
+Period wrong = Period.ofYears(1);
+wrong = Period.ofWeeks(7); // sobrescreve

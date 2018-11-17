@@ -1,0 +1,56 @@
+Core Java API - Questões de Revisão
+
+1 - G																							(CERTO)
+2 - A, C, D 																					(CERTO)
+3 - B, C, E, G 																					(ERRADO (DE BESTA))
+4 - B (fiquei em dúvida entre E) achando que ao retorno deve ser sempre atribuido (não deve)	(CERTO)
+5 - A (revisar apontamento de referências)														(ERRADO) => F
+6 - A 																							(ERRADO) => B
+7 - B, D, E 																					(CERTO)
+8 - A, E (em dúvida entre C), D 																(CERTO)
+9 - C 																							(CERTO)
+10 - C 																							(ERRADO) => F
+11 - E 																							(CERTO)
+12 - A (revisar mẽtodo delete) 																	(CERTO)
+13 - F (tentou adicionar int em string linha 2) 												(CERTO)
+14 - A, C 																						(CERTO)
+15 - B, C, E 																					(ERRADO) => C, E, F
+16 - C 																							(CERTO)
+17 - F 																							(CERTO)
+18 - A, C, F (se D ou E também, verificar) 														(ERRADO) => A, C, D, E
+19 - C 																							(ERRADO) => B, C
+20 - D 																							(CERTO)
+21 - C 																							(CERTO)
+22 - D 																							(CERTO)
+23 - A 																							(CERTO)
+24 - A 																							(ERRADO) => C
+25 - E (chute de com força) 																	(ERRADO) => D
+26 - A, C (entender valueOf) 																	(ERRADO) => A, B, D
+27 - B 																							(CERTO)
+28 - D, F 																						(CERTO)
+29 - D 																							(CERTO)
+30 - E 																							(ERRADO) => F
+31 - B (tem que atribuir a variável, pois retorna um novo objeto) 								(CERTO)
+32 - E (mas em dúvida entre F) 																	(CERTO)
+33 - B 																							(CERTO)
+
+TOTAL - 22 => 66%
+
+
+s1 java
+s2 java
+
+Resultado da revisão de questões:
+
+Prestar atenção em:
+
+- comparação entre tipos diferentes dá erro de compilação;
+- StringBulder .append muda o objeto através da referência, portanto lembrar que referências StringBuilder passadas para métodos podem mudar o conteúdo da String sim;
+- lembrar que uma String concatenada com qualquer outro tipo SEMPRE RESULTA EM STRING;
+- lembrar que array pode mudar em valores (não em tamanho), portanto é MUTÁVEL;
+- igualdade de ArrayList (.equals()) define que são iguais se os elementos são iguais e estão na mesma ordem;
+- converter de Array para ArrayList => Arrays.asList(arr);
+- converter de ArrayList para Array => al.toArray(new Type[tamanho]);
+- lembrar que em hexadecimal, números são ordenados antes das letras (aprender a ler hexadecimal);
+- lembrar que Integer.valueOf("6") retorna um Integer;
+- lembrar que em declaração de data (LocalDate.of) o número do dia deve ser de acordo com o mês;

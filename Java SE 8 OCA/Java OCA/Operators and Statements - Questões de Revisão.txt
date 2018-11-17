@@ -1,0 +1,24 @@
+Operators and Statements - Questões de Revisão
+
+1 - A, D, F					(ERRADO) - A, D
+2 - A 						(ERRADO) - A, B, D
+3 - F						(CERTO)
+4 - B, C, D 				(ERRADO) - B, C, D, F
+5 - C 						(CERTO)
+6 - F 						(CERTO)
+7 - F 						(ERRADO) - D
+8 - F 						(ERRADO) - B
+9 - B 						(ERRADO) - F
+10 - D 						(CERTO)
+11 - A 						(CERTO)
+12 - D 						(CERTO)
+13 - A 						(CERTO)
+14 - C 						(CERTO)
+15 - E 						(CERTO)
+16 - E 						(ERRADO)
+17 - D 						(CERTO)
+18 - A 						(CERTO)
+19 - D 						(CERTO)
+20 - D 						(ERRADO) - B
+
+TOTAL 12 => 60%

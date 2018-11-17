@@ -1,0 +1,50 @@
+1 - A						(CERTO)
+2 - D						(ERRADO) - A
+3 - C 						(CERTO)
+4 - C						(CERTO)
+5 - A, D 					(CERTO)
+6 - B (A) 					(CERTO)
+7 - E 						(CERTO)
+8 - C 						(CERTO)
+9 - C 						(ERRADO) - B
+10 - C 						(CERTO)
+11 - B 						(ERRADO) - D (FALTA DE ATENÇÃO)
+12 - B 						(ERRADO) - E
+13 - B 						(CERTO)
+14 - E, F 					(ERRADO) - E
+15 - B, D 					(ERRADO) - B, E
+16 - F 						(ERRADO) - E
+17 - B 						(CERTO)
+18 - G 						(CERTO)
+19 - A, B, E, F (D) 		(ERRADO) - A, C (FALTA DE ATENÇÃO)
+20 - C 						(CERTO)
+21 - A, B, C, E, F 			(ERRADO) - A, C, E
+
+TOTAL - 12 => 57%
+
+Revisão das respostas:
+
+2) membros privados podem ser acessados por classes MEMBRO e LOCAL desde que estejam na 
+mesma classe, mesmo sendo objetos diferentes;
+
+6) variáveis enums são ordenadas como arrays, começando do 0;
+
+9) Classes LOCAIS podem declarar variáveis privados. Classes LOCAIS acessam membros da
+classe container assim: Container.this.membro;
+
+11) Membros estáticos devem ser importados mencionando a classe, não somente o pacote
+da classe que os contém;
+
+12) o CAST não considera somente a referência, mas também o tipo da instância. Portanto,
+ambos devem ser casteáveis para a classe que está sendo convertida, caso contrário,
+ClassCastException;
+
+15) se forem passados tipos errados ao equals(), ele retornará FALSE;
+
+16) Classes MEMBRO precisam de INSTÃNCIA da classe container para serem usadas.
+Outer.Inner in = new Outer().new Inner();
+
+19) Override acontece quando a assinatura do método é a mesma (FOCAR NISSO). final também
+sobrescreve pois só impede que a partir daquela classe, o método não poderá mais ser herdado.
+
+21) Métodos de INTERFACE são sempre PUBLIC;
