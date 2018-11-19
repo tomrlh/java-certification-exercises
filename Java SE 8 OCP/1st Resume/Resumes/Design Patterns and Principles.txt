@@ -1,0 +1,74 @@
+Design Patterns and Principles
+
+✓ Advanced Java Class Design
+■ Develop code that declares, implements, and/or extends
+  interfaces and use the @Override annotation
+■ Create and use Lambda expressions
+
+✓ Lambda Built‐in Functional Interfaces
+■ Use the built‐in interfaces included in the java.util.function
+  package such as Predicate, Consumer, Function, and Supplier
+
+✓ Java Class Design
+■ Implement encapsulation
+■ Implement inheritance including visibility modifiers and composition
+■ Implement polymorphism
+■ Create and use singleton classes and immutable classes
+
+
+
+OBJETIVO
+---------------------------------------
+
+Aderir a princípios de design e padrões de projeto permitem o desenvolvedor a criar modelos
+de classes complexas que interajam suavemente com outras aplicações. Quanto melhor sua
+aplicação é desenhada, melhor ela irá se adaptar as mudanças das requisições, permitindo
+uma escalabilidade natural ao longo do projeto.
+
+
+
+--------------------------------------
+
+DESENHANDO (DESIGNING) UMA INTERFACE
+
+- INTERFACE é um tipo de dado abstrato, similar a classes abstratas;
+- podem conter variáveis STATIC e FINAL, métodos DEFAULT e STATIC;
+- automaticamente é adicionado PUBLIC à todos métodos e ABSTRACT à todos
+  métodos não-static e não-default;
+- em contraste a classe que os implementar, deverá adicionar os modificadores devidos;
+- INTERFACES não podem ser FINAL ou instanciadas diretamente;
+- INTERFACES FUNCIONAIS são interfaces que possuem 1 método abstrato;
+
+PROPÓSITO DE UMA INTERFACE
+
+Permite que um indivíduo desenvolva código que usa código de outra pessoa, sem ter acesso
+ao código do outro indivíduo.
+Interfaces podem facilitar o desenvolvimento rápido de aplicações, permitindo aplicações
+serem criadas em paralelo, ao invés de serem diretamente dependentes.
+
+EX: dois times podem trabalhar para desenvolver uma interface de uma página como início
+do projeto. Um time desenvolve código que usa as interfaces enquanto o outro desenvolve
+o código que implementa as interfaces. Como usam a mesma interface, serão compatíveis.
+
+
+
+---------------------------------------
+
+INTRODUÇÃO A PROGRAMAÇÃO FUNCIONAL
+
+Interfaces Funcionais são usadas como a base para expresões Lambda na programação funcional.
+Desde que expressões Lambda e programação funcional são o pilar do Java 8, vamos rever o
+básico passado no OCA.
+
+DEFININDO UMA INTERFACE FUNCIONAL
+
+@FunctionalInterface
+public interface Sprint {
+	public void sprint(Animal animal);
+}
+
+Uma interface funcional deve possuir somente um método abstrato, mas pode ter métodos 
+STATIC e DEFAULT, para que aceite a anotação @FunctionalInterface.
+
+IMPLEMENTANDO INTERFACES FUNCIONAIS COM LAMBDAS
+
